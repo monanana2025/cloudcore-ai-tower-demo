@@ -205,8 +205,8 @@ function DashboardPage() {
       <div className="card">
         <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
-            <h3 className="section-title">Live anomaly trend</h3>
-            <p className="section-subtitle">Purple-blue monitoring signal, static demo data</p>
+            <h3 className="section-title">Live AI Anomaly Score Trend</h3>
+            <p className="section-subtitle">Composite anomaly score based on traffic volume, latency, packet loss, and error rate.</p>
           </div>
           <Badge label="AI watching baseline drift" tone="blue" />
         </div>
@@ -215,6 +215,14 @@ function DashboardPage() {
             <span key={index} style={{ height: `${height}%` }} />
           ))}
         </div>
+        <div className="mt-3 flex flex-wrap justify-between gap-2 text-xs font-semibold text-slate-500">
+          <span>Low anomaly score</span>
+          <span>Elevated activity</span>
+          <span>High review priority</span>
+        </div>
+        <p className="mt-4 max-w-4xl text-sm leading-6 text-slate-600">
+          The AI compares current network indicators against historical baseline patterns. Higher bars indicate stronger deviation from normal network behaviour and a higher need for human review.
+        </p>
         <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
           {dashboardMetrics.map((metric) => (
             <button
@@ -327,9 +335,9 @@ function RealtimePage({ onSend }) {
       <div className="card">
         <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
-            <h3 className="section-title">Live Anomaly Trend</h3>
+            <h3 className="section-title">Live AI Anomaly Score Trend</h3>
             <p className="section-subtitle">
-              AI is comparing current network traffic behaviour with historical baseline patterns.
+              Composite anomaly score based on traffic volume, latency, packet loss, and error rate.
             </p>
           </div>
           <Badge label="Static mock trend" tone="violet" />
@@ -339,6 +347,14 @@ function RealtimePage({ onSend }) {
             <span key={index} style={{ height: `${height}%` }} />
           ))}
         </div>
+        <div className="mt-3 flex flex-wrap justify-between gap-2 text-xs font-semibold text-slate-500">
+          <span>Low anomaly score</span>
+          <span>Elevated activity</span>
+          <span>High review priority</span>
+        </div>
+        <p className="mt-4 max-w-4xl text-sm leading-6 text-slate-600">
+          The AI compares current network indicators against historical baseline patterns. Higher bars indicate stronger deviation from normal network behaviour and a higher need for human review.
+        </p>
       </div>
 
       <div className="card">
@@ -551,7 +567,7 @@ function ReportDetailPage({ logsBySlug, addLog }) {
               Accept
             </button>
             <button className="btn-secondary" onClick={() => setEditOpen(true)}>Edit</button>
-            <button className="btn-secondary" onClick={() => setSendOpen(true)}>Send</button>
+            <button className="btn-secondary" onClick={() => setSendOpen(true)}>Escalate</button>
           </div>
         </div>
       </div>
